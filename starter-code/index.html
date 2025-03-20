@@ -11,6 +11,10 @@
 
   <style type="text/tailwindcss">
     @import "tailwindcss";
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
     @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
   
     @theme {
@@ -25,11 +29,44 @@
       --font-inter:"Inter","sans-serif";
       
     }
+    @layer components {
+      .card-title{
+      @apply text-2xl text-[var(--blue-900)] font-semibold;
+      }
+      .card-info{
+        @apply text-[var(--gray-500)];
+      }
+      .card-image{
+        @apply w-16 h-16;
+      }
+      .card-text{
+        @apply flex flex-col gap-6;
+      }
+      .card{
+        @apply flex lg:flex-col max-md:flex-row gap-12;
+      }
+
+      .last-card{
+        @apply flex flex-col gap-4 p-8 rounded-lg bg-white shadow-xl;
+      }
+      .last-img-heading{
+        @apply flex flex-row gap-3;
+      }
+      .last-img{
+        @apply h-6 w-6;
+      }
+      .last-heading{
+        @apply text-xl text-[var(--blue-900)] font-semibold;
+      }
+      .last-info{
+        @apply text-[var(--gray-500)]
+      }
+      }
   </style>
 </head>
 <body class="relative min-h-screen bg-gradient-to-r from-[#e8f2ff] to-white">
-  <main class="font-inter mx-[24px] md:mx-[32px] lg:mx-[144px] my-[32px] md:mt-[32px] lg:mt-[88px]">
-    <article id="first" class="grid lg:grid-cols-2 md:grid-cols-1 lg:gap-32 md:order-1 max-md:gap-10">
+  <main class="grid grid-rows-1 gap-42 font-inter mx-[24px] max-md:mx-[32px] lg:mx-[144px] my-[32px] max-md:mt-[32px] lg:mt-[88px]">
+    <article id="first" class="grid lg:grid-cols-2 md:grid-cols-1 lg:gap-32 max-md:gap-10">
       <section id="first-text-section" class="flex flex-col gap-[32px]  max-md:items-center lg:items-start">
         <img src="./assets/images/logo.svg" alt="logo" class="w-[60px] h-[60px]">
         <div class="text-[54px]/[110%] text-[var(--blue-900)] font-semibold text-left max-md:text-center" aria-labelledby="main-heading">Body Mass Index Calculator</div>
@@ -81,50 +118,115 @@
         </div>
       </section>
     </article>
-    <!-- <article id="second">
-      <img src="./assets/images/image-man-eating.webp" alt="man-eating-image">
-      What your BMI result means
-      A BMI range of 18.5 to 24.9 is considered a 'healthy weight.' Maintaining a
-      healthy weight may lower your chances of experiencing health issues later on,
-      such as obesity and type 2 diabetes. Aim for a nutritious diet with reduced
-      fat and sugar content, incorporating ample fruits and vegetables. Additionally,
-      strive for regular physical activity, ideally about 30 minutes daily for
-      five days a week.
+    <!-- <img src="./assets/images/pattern-curved-line-left.svg" alt="pattern-curved-line-left" class="h-[200px] w-[85px] absolute right-30 bottom-[1000px] max-md:hidden"> -->
+    <article id="second" class="grid lg:grid-cols-2 lg:gap-16 max-md:gap-8">
+      <img src="./assets/images/image-man-eating.webp" alt="man-eating-image" class="w-[468px] h-[533px]">
+      <section id="second-text-section" class="flex flex-col gap-8 justify-center" aria-labelledby="what-is-bmi-information">
+        <div class="text-[var(--blue-900)] text-4xl font-semibold">What your BMI result means</div>
+        <p class="text-[var(--gray-500)]">
+          A BMI range of 18.5 to 24.9 is considered a 'healthy weight.' Maintaining a
+          healthy weight may lower your chances of experiencing health issues later on,
+          such as obesity and type 2 diabetes. Aim for a nutritious diet with reduced
+          fat and sugar content, incorporating ample fruits and vegetables. Additionally,
+          strive for regular physical activity, ideally about 30 minutes daily for
+          five days a week.
+        </p>
+      </section>
     </article>
-    <article id="third">
-      Healthy eating
-      Healthy eating promotes weight control, disease prevention, better digestion,
-      immunity, mental clarity, and mood.
-      Regular exercise
-      Exercise improves fitness, aids weight control, elevates mood, and reduces disease
-      risk, fostering wellness and longevity.
-      Adequate sleep
-      Sleep enhances mental clarity, emotional stability, and physical wellness, promoting
-      overall restoration and rejuvenation.
+    <article id="third" class="grid lg:grid-cols-3 max-md:grid-cols-1 gap-8">
+      <section class="card">
+        <img src="./assets/images/icon-eating.svg" alt="icon-eating" class="card-image">
+        <div class="card-text">
+          <div class="card-title">Healthy eating</div>
+          <p class="card-info">
+            Healthy eating promotes weight control, disease prevention, better digestion,
+            immunity, mental clarity, and mood.
+          </p>
+        </div>
+      </section>
+      <section class="card">
+        <img src="./assets/images/icon-exercise.svg" alt="icon-exercise" class="card-image">
+        <div class="card-text">
+          <div class="card-title">Regular exercise</div>
+          <p class="card-info">
+            Exercise improves fitness, aids weight control, elevates mood, and reduces disease
+            risk, fostering wellness and longevity.
+          </p>
+        </div>
+      </section>
+      <section class="card">
+        <img src="./assets/images/icon-sleep.svg" alt="icon-sleep" class="card-image">
+        <div class="card-text">
+          <div class="card-title">Adequate sleep</div>
+          <p class="card-info">
+            Sleep enhances mental clarity, emotional stability, and physical wellness, promoting
+            overall restoration and rejuvenation.
+          </p>
+        </div>
+      </section>
     </article>
-    <article id="fourth">
-      Limitations of BMI
-      Although BMI is often a practical indicator of healthy weight, it is not suited for
-      every person. Specific groups should carefully consider their BMI outcomes, and in
-      certain cases, the measurement may not be beneficial to use.
-      Gender
-      The development and body fat composition of girls and boys vary with age. Consequently,
-      a child's age and gender are considered when evaluating their BMI.
-      Age
-      In aging individuals, increased body fat and muscle loss may cause BMI to underestimate
-      body fat content.
-      Muscle
-      BMI may misclassify muscular individuals as overweight or obese, as it doesn't
-      differentiate muscle from fat.
-      Pregnancy
-      Expectant mothers experience weight gain due to their growing baby. Maintaining a
-      healthy pre-pregnancy BMI is advisable to minimise health risks for both mother
-      and child.
-      Race
-      Certain health concerns may affect individuals of some Black and Asian origins at
-      lower BMIs than others. To learn more, it is advised to discuss this with your
-      GP or practice nurse.
-    </article> -->
+    <article id="fourth" class="grid grid-cols-16 grid-auto-rows gap-8">
+      <section class="flex flex-col gap-8 col-span-9" id="limitations">
+        <div class="text-5xl font-bold text-[var(--blue-900)]">Limitations of BMI</div>
+        <p class="text-[var(--gray-500)]">
+          Although BMI is often a practical indicator of healthy weight, it is not suited for
+          every person. Specific groups should carefully consider their BMI outcomes, and in
+          certain cases, the measurement may not be beneficial to use.
+        </p>
+      </section>
+      <section class="last-card col-span-6 col-start-10 col-end-15" id="gender">
+        <div class="last-img-heading">
+          <img src="./assets/images/icon-gender.svg" alt="icon-gender" class="last-img">
+          <div class="last-heading">Gender</div>
+        </div>
+        <p class="last-info">
+          The development and body fat composition of girls and boys vary with age. Consequently,
+          a child's age and gender are considered when evaluating their BMI.
+        </p>
+      </section>
+      <section class="last-card col-span-7 col-start-5 col-end-11" id="age">
+        <div class="last-img-heading">
+          <img src="./assets/images/icon-age.svg" alt="icon-age" class="last-img">
+          <div class="last-heading">Age</div>
+        </div>
+        <p class="last-info">
+          In aging individuals, increased body fat and muscle loss may cause BMI to underestimate
+          body fat content.
+        </p>
+      </section>
+      <section class="last-card col-span-7 col-start-11 col-end-16" id="muscle">
+        <div class="last-img-heading">
+          <img src="./assets/images/icon-muscle.svg" alt="icon-muscle" class="last-img">
+          <div class="last-heading">Muscle</div>
+        </div>
+        <p class="last-info">
+          BMI may misclassify muscular individuals as overweight or obese, as it doesn't
+          differentiate muscle from fat.
+        </p>
+      </section>
+      <section class="last-card col-span-7 col-start-3 col-end-10" id="pregnancy">
+        <div class="last-img-heading">
+          <img src="./assets/images/icon-pregnancy.svg" alt="icon-pregnancy" class="last-img">
+          <div class="last-heading">Pregnancy</div>
+        </div>
+        <p class="last-info">
+          Expectant mothers experience weight gain due to their growing baby. Maintaining a
+          healthy pre-pregnancy BMI is advisable to minimise health risks for both mother
+          and child.
+        </p>
+      </section>
+      <section class="last-card col-span-7 col-start-10 col-end-15" id="race">
+        <div class="last-img-heading">
+          <img src="./assets/images/icon-race.svg" alt="icon-race" class="last-img">
+          <div class="last-heading">Race</div>
+        </div>
+        <p class="last-info">
+          Certain health concerns may affect individuals of some Black and Asian origins at
+          lower BMIs than others. To learn more, it is advised to discuss this with your
+          GP or practice nurse.
+        </p>
+      </section>
+    </article>
   </main>
 
 </body>
