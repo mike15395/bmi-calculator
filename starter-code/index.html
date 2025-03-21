@@ -95,14 +95,14 @@
             <div class="flex flex-col gap-1">
               <label for="height" class="text-[var(--gray-500)]"> Height</label>
               <div class="relative">
-                <input type="number" id="metric-height" name="height" class="border-1 p-4 rounded-md w-52 max-md:w-72"/>
+                <input type="number" id="metric-height" name="height" class="border-1 p-4 rounded-md w-52 max-md:w-72 invalid:border-red-300" min="1"/>
                 <span class="absolute right-2 top-2 text-[var(--blue-500)] text-[24px] font-bold">cm</span>
               </div>
             </div>
             <div class="flex flex-col gap-1">
               <label for="weight" class="text-[var(--gray-500)]">Weight</label>
               <div class="relative">
-                <input type="number" id="metric-weight" name="weight" class="border-1 p-4 rounded-lg w-52 max-md:w-72"/>
+                <input type="number" id="metric-weight" name="weight" class="border-1 p-4 rounded-lg w-52 max-md:w-72 invalid:border-red-300" min="1"/>
                 <span  class="absolute right-2 top-2 text-[var(--blue-500)] text-[24px] font-bold">kg</span>
               </div>
             </div>
@@ -113,13 +113,13 @@
               <div class="flex flex-col gap-1" >
                 <label for="height" class="text-[var(--gray-500)]"> Height</label>
                 <div class="relative">
-                  <input type="text" id="height-feet" name="height" class="border-1 p-4 rounded-md w-52 max-md:w-72"/>
+                  <input type="number" id="height-feet" name="height" class="border-1 p-4 rounded-md w-52 max-md:w-72 invalid:border-red-300" min="1"/>
                   <span class="absolute right-2 top-2 text-[var(--blue-500)] text-[24px] font-bold">ft</span>
                 </div>
               </div>
               <div class="flex flex-col justify-end">
                 <div class="relative">
-                  <input type="text" id="height-inch" name="weight" class="border-1 p-4 rounded-lg w-52 max-md:w-72"/>
+                  <input type="number" id="height-inch" name="weight" class="border-1 p-4 rounded-lg w-52 max-md:w-72 invalid:border-red-300" min="1"/>
                   <span  class="absolute right-2 top-2 text-[var(--blue-500)] text-[24px] font-bold">in</span>
                 </div>
               </div>
@@ -128,26 +128,26 @@
               <div class="flex flex-col gap-1" >
                 <label for="height" class="text-[var(--gray-500)]"> Weight</label>
                 <div class="relative">
-                  <input type="text" id="weight-stone" name="height" class="border-1 p-4 rounded-md w-52 max-md:w-72"/>
+                  <input type="number" id="weight-stone" name="height" class="border-1 p-4 rounded-md w-52 max-md:w-72 invalid:border-red-300" min="1"/>
                   <span class="absolute right-2 top-2 text-[var(--blue-500)] text-[24px] font-bold">st</span>
                 </div>
               </div>
               <div class="flex flex-col justify-end">
                 <div class="relative">
-                  <input type="text" id="weight-pound" name="weight" class="border-1 p-4 rounded-lg w-52 max-md:w-72"/>
+                  <input type="number" id="weight-pound" name="weight" class="border-1 p-4 rounded-lg w-52 max-md:w-72 invalid:border-red-300" min="1"/>
                   <span  class="absolute right-2 top-2 text-[var(--blue-500)] text-[24px] font-bold">lbs</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div id="result-section" aria-labelledby="result-of-bmi" class="bg-[var(--blue-500)] text-white p-[32px] rounded-r-4xl flex flex-row justify-between gap-6 max-sm:flex-col ">
+        <div id="result-section" aria-labelledby="result-of-bmi" class="cursor-pointer bg-[var(--blue-500)] text-white p-[32px] rounded-r-4xl flex flex-row justify-between gap-6 max-sm:flex-col ">
           <div class="flex flex-col gap-2">
             <span>Your BMI is...</span>
             <span id="score" class="text-6xl font-bold">23.4</span>
           </div>
           <div class="text-sm">
-            Your BMI suggests you're <span id="classification">healthy weight</span>.
+            Your BMI suggests you're <span id="classification">healthy</span>.
             Your ideal weight is between <span id="range" class="font-bold">63.3kgs-85.2kgs</span>.
           </div>
         </div>
