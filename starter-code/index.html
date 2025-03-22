@@ -142,11 +142,17 @@
           </div>
         </div>
         <div id="result-section" aria-labelledby="result-of-bmi" class="cursor-pointer bg-[var(--blue-500)] text-white p-[32px] rounded-r-4xl flex flex-row justify-between gap-6 max-sm:flex-col ">
-          <div class="flex flex-col gap-2">
+          <div class="flex flex-col gap-6" id="welcome-container">
+            <div class="text-3xl font-bold">
+              Welcome!
+            </div>
+            <p>Enter your height and weight and you’ll see your BMI result here</p>
+          </div>
+          <div class="flex flex-col gap-2 hidden" id="bmi-score-container">
             <span>Your BMI is...</span>
             <span id="score" class="text-6xl font-bold">23.4</span>
           </div>
-          <div class="text-sm">
+          <div class="text-sm hidden" id="bmi-info-container">
             Your BMI suggests you're <span id="classification">healthy</span>.
             Your ideal weight is between <span id="range" class="font-bold">63.3kgs-85.2kgs</span>.
           </div>

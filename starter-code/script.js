@@ -17,6 +17,10 @@ const bmiScore = document.getElementById("score");
 const bmiClassification = document.getElementById("classification");
 const bmiRange = document.getElementById("range");
 
+const welcomeContainer = document.getElementById("welcome-container");
+const bmiScoreContainer = document.getElementById("bmi-score-container");
+const bmiInfoContainer = document.getElementById("bmi-info-container");
+
 let [...radios] = document.querySelectorAll('input[type="radio"]');
 radios.map((ele) => {
   ele.addEventListener("input", function () {
@@ -36,7 +40,9 @@ bmiResultSection.addEventListener("click", function () {
       alert("please enter correct values");
       return;
     }
-
+    welcomeContainer.style.display = "none";
+    bmiInfoContainer.style.display = "block";
+    bmiScoreContainer.style.display = "flex";
     let heightInMetres = metricHeight.value * 0.01;
     let calcMetric = metricWeight.value / (heightInMetres * heightInMetres);
     let bmiMetric = Math.floor(calcMetric * 100) / 100;
@@ -53,6 +59,9 @@ bmiResultSection.addEventListener("click", function () {
       alert("Please enter correct values");
       return;
     }
+    welcomeContainer.style.display = "none";
+    bmiInfoContainer.style.display = "block";
+    bmiScoreContainer.style.display = "flex";
 
     let totalHeightInch =
       Number(heightFeet.value * 12) + Number(heightInch.value);
